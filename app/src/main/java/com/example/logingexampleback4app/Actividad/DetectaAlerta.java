@@ -58,18 +58,7 @@ public class DetectaAlerta extends AsyncTask<Void, Void, Void> {
             // Aquí puedes realizar las operaciones que necesites en el hilo principal
             Log.i(TAG, "RUN onPostExecute");
             super.onPostExecute(aVoid);
-            if (mandaMensaje) {
-                context = getApplicationContext();
-                mLocationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
-                localizacion = new PeticionLocalizacion(mLocationManager, context);
-                localizacion.activaActualizacionLocalizacion(context);
-                if (comandoRecibido.equals(command.location.toString())) {
-                    localizacion.tomaBotTelegram(telegramFunciones);
-                    iniciarCuentaAtras(20000);
-                    localizacion.enviaMensajeTelegram();
-                }
-                comandoRecibido = "";
-            }
+
             ejecutando = false;
         }
     }

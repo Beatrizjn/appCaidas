@@ -2,19 +2,26 @@ package com.example.logingexampleback4app.Actividad;
 
 import static android.content.ContentValues.TAG;
 
+import static com.parse.Parse.getApplicationContext;
+
+import static java.lang.Thread.sleep;
+
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.logingexampleback4app.GPS.PeticionLocalizacion;
 import com.example.logingexampleback4app.Telegram.TelegramExecutes;
+import com.example.logingexampleback4app.command.command;
 
 public class GetMessage extends Service {
 
@@ -27,6 +34,8 @@ public class GetMessage extends Service {
     Context mContext;
     private Thread thread;
     DetectaAlerta myAsyncTask;
+    boolean terminarHilo = false;
+    Thread serviceThread;
 
     @Override
     public void onCreate() {
@@ -49,63 +58,43 @@ public class GetMessage extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        // Crear la notificación
-        /*Notification notification = new Notification.Builder(this)
-                .setContentTitle("Mi aplicación está en segundo plano")
-                .setContentText("La aplicación está ejecutando un servicio en segundo plano")
-                .build();
-
-        // Mostrar la notificación y poner el servicio en primer plano
-        startForeground(1, notification);*/
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(intent);
         }
         //myAsyncTask.ejecutando
-
-        if(!myAsyncTask.ejecutando)
+        Log.i(TAG, "onStartCommand");
+        try {
+            comandoRecibido = telegramFunciones.dameTextoChatNuevo();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //gestionamos la respuesta
+        //NEW
+        Log.i(TAG, "Comando Recibido: " + comandoRecibido);
+        if(comandoRecibido != "igual")
         {
-            myAsyncTask.cancel(true);
-            myAsyncTask = new DetectaAlerta();
-
-            Log.i(TAG, "RUN GETMESSAGE");
-            myAsyncTask.execute();
+            mandaMensaje = true;
+        }
+        else
+        {
+            mandaMensaje = false;
         }
 
-
-
-        /*thread = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    detectaAlerta();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        if(mandaMensaje)
+        {
+            if(!terminarHilo)
+            {
+                serviceThread = new Thread( new threadLisening());
+                serviceThread.start();
             }
-        });
-        thread.start();*/
 
-
-        // para que use un hilo diferente al principal hay que crear una clase runnable
-        /*Thread serviceThread = new Thread( new threadLisening(startId));
-        serviceThread.start();*/
-
-        /*new Handler(Looper.myLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    //Sync data to and fro every 300 seconds
-                    detectaAlerta();
-                    try {
-                        sleep(10000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        }
+        if(terminarHilo)
+        {
+            if(serviceThread != null){  //valida si existe.
+                serviceThread.interrupt();  //Interrumpe su ejecución.
             }
-        });*/
+        }
 
         return START_STICKY;
     }
@@ -117,35 +106,77 @@ public class GetMessage extends Service {
 
     }
 
-/*    final class threadLisening implements Runnable {
+    final class threadLisening implements Runnable {
 
-        int idServiceThread;
-        Handler timerHandler;*/
+        Handler timerHandler;
+        long cont = 0;
 
-        /*public threadLisening(int idThread)
+        public threadLisening()
         {
-            idServiceThread = idThread;
-            Log.i(TAG, "HILO INICIADO: " + idThread);
+            Log.i(TAG, "HILO INICIADO");
             timerHandler = new Handler();
             mContext = getApplicationContext();
             mLocationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
             localizacion = new PeticionLocalizacion(mLocationManager, mContext);
-        }*/
+        }
 
-/*        @Override
-        public void run() {
-            try {
-                //Sync data to and fro every 300 seconds
-                detectaAlerta();
-                try {
-                    sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        private void iniciarCuentaAtras(long segundos)
+        {
+            // asi conseguimos que solo este activa la actualizacion de localizacion bajo peticion y durante un tiempo para que la localizacion sea capaz de actualizatse
+            // se pretende optimizar al maximo la bateria.
+            new CountDownTimer(segundos, 1000)
+            {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    Log.i(TAG, "time:"+ millisUntilFinished +"ms -> Longitude " + localizacion.getLongitude() + ", Latitude " + localizacion.getLatitude() );
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }        }
-    }*/
+
+                @Override
+                public void onFinish() {
+                    localizacion.enviaMensajeTelegram();
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    localizacion.detenerActualizacionUbicacion();
+                    terminarHilo = true;
+                }
+            }.start();
+        }
+
+        @Override
+        public void run() {
+            Looper.prepare();
+            terminarHilo = false;
+            mContext = getApplicationContext();
+            mLocationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
+            localizacion = new PeticionLocalizacion(mLocationManager, mContext);
+            localizacion.activaActualizacionLocalizacion(mContext);
+            if (comandoRecibido.equals(command.location.toString())) {
+                localizacion.tomaBotTelegram(telegramFunciones);
+                while (cont < 20)
+                {
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    cont ++;
+                    Log.i( TAG,  "TIMER " + cont );
+                }
+                localizacion.enviaMensajeTelegram();
+                localizacion.detenerActualizacionUbicacion();
+                terminarHilo = true;
+                cont = 0;
+
+
+                //iniciarCuentaAtras(20000);
+            }
+            comandoRecibido = "";
+            Looper.loop();
+        }
+    }
 
 
 

@@ -111,14 +111,14 @@ public class MainActivity extends AppCompatActivity {
                 .build();*/
 
         //WorkRequest getMessageRequest = new PeriodicWorkRequest.Builder(GetMessage.class,15000, TimeUnit.MILLISECONDS).build();
-        context = getApplicationContext();
+        /*context = getApplicationContext();
         mLocationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
         localizacion = new PeticionLocalizacion(mLocationManager, context);
         localizacion.activaActualizacionLocalizacion(context);
         TelegramExecutes telegramFunciones = new TelegramExecutes();
         localizacion.tomaBotTelegram(telegramFunciones);
         iniciarCuentaAtras(10000);
-        localizacion.enviaMensajeTelegram();
+        localizacion.enviaMensajeTelegram();*/
 
         //WorkManager.getInstance(this).enqueue(getMessageRequest);
         Intent serviceIntent = new Intent(this, GetMessage.class);
