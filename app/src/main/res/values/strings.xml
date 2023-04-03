@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LogingExampleback4app</string>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <!-- Paste BOTH strings as required -->
+    <string name="back4app_app_id">alQ50UdzODDGa8hD4OOo6mnGqigknpksLd5l3rHZ</string>
+    <string name="back4app_client_key">wHEgtFqWeKvQKF6bKr6KmB0pCLQ9W47aopGYFbUF</string>
+    <string name="Nombre_Usuario">Nombre Usuario</string>
+    <string name="Caidas_Semana">Caidas por semana:</string>
+    <string name="Caidas_Dia">Caidas por dia:</string>
+
+</resources>

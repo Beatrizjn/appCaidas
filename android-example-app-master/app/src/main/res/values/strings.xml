@@ -1,0 +1,195 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Back4App Barber Shop</string>
+
+    <!-- Back4App Keys -->
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">fx33YcBgpSyHBmQwPXKMLUy1WcS7ACyNYv1A8go9</string>
+    <string name="back4app_client_key">VS1gRD4ZpVxCuDpfariGHNTQaUnfyCWQj1P3JJHd</string>
+
+    <!-- Facebook Keys -->
+    <string name="facebook_app_id">198689570998793</string>
+    <string name="fb_login_protocol_scheme">fb198689570998793</string>
+
+    <!-- Menu -->
+    <string name="barber">Barber</string>
+    <string name="profile">Profile</string>
+    <string name="contact">Contact us</string>
+    <string name="about">ABOUT US</string>
+    <string name="sale">SALE</string>
+    <string name="location">LOCATION</string>
+    <string name="schedule">SCHEDULE AN\nAPPOINTMENT</string>
+    <string name="logout">Log Out</string>
+    <string name="going">So, you\'re going…</string>
+    <string name="bye">Bye-bye, then!</string>
+    <string name="ok">OK</string>
+
+    <!-- Welcome -->
+    <string name="welcome_message">This is the Back4App Barber Shop App Template made to help you to master Back4App\'s Serverless Platform!\nLet\'s get started!</string>
+    <string name="register">Register</string>
+    <string name="no_credit_card">No credit card required :)</string>
+
+    <!-- Login -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="please_insert">Please, insert</string>
+    <string name="an_user">an username</string>
+    <string name="and">and</string>
+    <string name="a_password">a password</string>
+    <string name="point">.</string>
+    <string name="wait">Please, wait a moment.</string>
+    <string name="logging">Logging in…</string>
+    <string name="successful_login">Successful Login</string>
+    <string name="unsuccessful_login">Login failed!</string>
+    <string name="exclamation_point">!</string>
+    <string name="sorry_cant_login">It wasn\'t possible to login, try again.</string>
+    <string name="verify_email">Please, verify your email first.</string>
+    <string name="reset_password">Reset your password</string>
+    <string name="really_reset_password">If you really want to reset your password, insert the email associated to your account and click on the CONFIRM button.</string>
+    <string name="error_user_not_found">We couldn\'t find a user associated to this email. Try again.</string>
+    <string name="reset_password_sucessful">An email was successfully sent to you with reset instructions.</string>
+    <string name="reset_password_unsucessful">Something went wrong. Try again.</string>
+    <string name="error_empty_email">Insert your email to reset your password.</string>
+
+    <!-- Register -->
+    <string name="username_">Username*</string>
+    <string name="password_">Password*</string>
+    <string name="signup">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="password_again">Password Again</string>
+    <string name="password_again_">Password Again*</string>
+    <string name="an_username">an username</string>
+    <string name="insert_password_again">your password again</string>
+    <string name="same_password">the same password twice.</string>
+    <string name="signing">Signing in…</string>
+    <string name="welcome">Welcome </string>
+    <string name="back">Back</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="message_successful_creation">Account created successfully!</string>
+    <string name="message_unsuccessful_creation">Error: Account creation failed.</string>
+    <string name="please_verify">Please verify your email before login.</string>
+    <string name="not_created">Account could not be created</string>
+    <string name="please_complete">Please complete correctly</string>
+    <string name="required_field">the required field</string>
+    <string name="required_fields">the required fields</string>
+    <string name="not_matching_passwords">Insert matching passwords.</string>
+    <string name="choose_photo">Choose your profile picture</string>
+    <string name="rewrite_password">Enter a valid password. It must have letters and numbers, at least 7 digits and at least one capital letter.</string>
+
+
+    <!-- Scheduling and scheduled -->
+    <string name="delete_appointment">  Delete\nappointment  </string>
+    <string name="add_another_appointment">  Add another\nappointment  </string>
+    <string name="select_service">Select a service</string>
+    <string name="select_options_scheduled">Select the service and date from one of your scheduled appointments and check if it is correct. If it isn\'t, you can delete it.</string>
+    <string name="select_professional">Select your professional</string>
+    <string name="select_date">Select a date</string>
+    <string name="select_time">Select a time</string>
+    <string name="schedule_appointment">Schedule an appointment</string>
+    <string name="add_appointment">Add appointment</string>
+    <string name="service">Service</string>
+    <string name="professional">Professional</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="please_select">Please, select</string>
+    <string name="field">the field</string>
+    <string name="fields">the fields</string>
+    <string name="scheduling">Scheduling your appointment…</string>
+    <string name="title_activity_location">Map</string>
+    <string name="other_scheduled_services">Other scheduled services</string>
+    <string name="scheduled_dates">Scheduled dates for this service</string>
+    <string name="another_appointment">Add another appointment</string>
+    <string name="really_want_to_delete">Are you sure you want to delete this appointment?</string>
+    <string name="deleted_appointment">Appointment deleted successfully!</string>
+    <string name="not_deleted_appointment">Deletion of appointment canceled.</string>
+    <string name="select_appointment">You must select an appointment to delete it.</string>
+    <string name="warning">Warning</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="really_want_to_edit">Are you sure you want to edit this appointment?</string>
+    <string name="not_edited_appointment">Edition of appointment canceled.</string>
+    <string name="select_options_appointment">Select the best options to your next appointment at Back4App Barber Shop and don\'t worry about anything else!</string>
+    <string name="appointments">Appointments</string>
+
+    <!-- Location -->
+    <string name="select_shop">Select a barber shop</string>
+
+    <!-- Contact us -->
+    <string name="select_subject">Select a subject</string>
+    <string name="name_">Name*</string>
+    <string name="name">Name</string>
+    <string name="email_">Email*</string>
+    <string name="message">Message</string>
+    <string name="message_">Message*</string>
+    <string name="subject_">Subject*</string>
+    <string name="subject">Subject</string>
+    <string name="write_message">Write your message here</string>
+    <string name="send">Send</string>
+    <string name="sending">Sending your message…</string>
+    <string name="thanks">Thanks for your message!</string>
+    <string name="soon">Soon, a member of Barber Shop App team will answer you at your email address.</string>
+    <string name="invalid_email">Enter a valid email address.</string>
+
+
+    <!-- Subject Message Dropwdown -->
+    <string-array name="array_dropdown_subject">
+        <item>Select a subject</item>
+        <item>Doubts</item>
+        <item>Compliment</item>
+        <item>Complaint</item>
+        <item>Help</item>
+        <item>Other</item>
+    </string-array>
+
+
+    <!-- Profile -->
+    <string name="my_visits">MY VISITS</string>
+    <string name="my_appointments">MY APPOINTMENTS</string>
+
+    <!-- Visits -->
+    <string name="description">Description of service</string>
+    <string name="price">Price</string>
+    <string name="history">History</string>
+    <string name="visits">Other visits</string>
+    <string name="select_options_history">Select the date from one of your past visits to Back4App Barber Shop and see a full description of the services performed.</string>
+
+    <!-- Scheduling -->
+    <string name="scheduled_appointment">Appointment scheduled successfully!</string>
+    <string name="checkout_appointment">Check out your appointment data!\nYou are able to delete it if you want to.</string>
+
+
+    <!-- About us -->
+    <string name="barber_description">Hair, beard and all services aimed at male\'s vanity make the Back4App Barber Shop network synonymous of excellence in this field.\n\nFounded in 1970, the Back4App Barber Shop is an environment inspired by traditional barber shops that has been adapted to the needs of modern man.\n\nBesides our high quality services, we have a unique product line and complete structure for fun and relaxation, with pool table, new and old video games, massage chair, open bar and more.</string>
+
+    <!-- Sale -->
+    <string name="loading_sales">The available sales are being loaded.</string>
+
+    <!-- Edit Profile -->
+    <string name="loading_profile">Your profile is being loaded.</string>
+    <string name="editing">Editing your profile…</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="edit_profile_finished">Your profile was updated successfully!</string>
+    <string name="verify_edited_email">As you changed your email account, in order to be able to login again you\'ll have to verify your email address.</string>
+    <string name="dont_forget_changes">Don\'t forget changes in your next login.</string>
+    <string name="sorry">Sorry…</string>
+    <string name="message_unsuccessful_edition">Your changes couldn\'t be saved.\nTry again.</string>
+    <string name="edit">EDIT</string>
+
+    <!-- Dialog Password -->
+    <string name="insert_password">To edit your profile, please enter your login password.</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Menu -->
+    <string name="error_empty_password">Insert your password to edit your profile.</string>
+    <string name="error_password">Insert your password correctly to edit your profile.</string>
+    <string name="edit_profile_successful">Edit your profile and save it.</string>
+    <string name="invalid_password">Enter a valid password.</string>
+
+
+</resources>

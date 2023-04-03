@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Aplicacion.App" >
+
+    <!--Title-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="411dp"
+        android:layout_height="67dp"
+        android:background="@color/blue_700"
+        android:gravity="center_horizontal"
+        android:padding="24dp"
+        android:text="Control Caidas"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".Actividad.MainActivity">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="27dp"
+            android:layout_marginBottom="24dp"
+            android:onClick="listaAlertUser"
+            android:clickable="true"
+            app:backgroundTint="@color/blue_700"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="179dp"
+            android:hint="@string/Nombre_Usuario"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/caidasDia"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_marginTop="61dp"
+            android:hint="@string/Caidas_Dia" />
+
+        <TextView
+            android:id="@+id/caidasSemana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caidasDia"
+            android:layout_marginTop="16dp"
+            android:hint="@string/Caidas_Semana" />
+
+        <TextView
+            android:id="@+id/datoCaidaDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="62dp"
+            android:layout_toEndOf="@+id/caidasDia"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/datoCaidaSemana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="97dp"
+            android:layout_toEndOf="@+id/caidasSemana"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/buttonAlerta"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caidasSemana"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="136dp"
+            android:layout_marginTop="73dp"
+            android:layout_marginEnd="137dp"
+            android:background="#DD0A0A"
+            android:text="Alerta"
+            android:onClick="accionAlertarUsuarios"
+            android:textColor="#E8F5E9"
+            android:textColorHighlight="#9E0F0F"
+            android:textColorHint="#DF0404"
+            android:textColorLink="#BA2323"
+            android:textCursorDrawable="@drawable/ic_launcher_foreground" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
